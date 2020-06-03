@@ -1,0 +1,22 @@
+#app {
+    display: flex;
+}
+
+#left {
+    width: 15%;
+    float: left;
+    min-height: 100vh;
+}
+#right {
+    width: 15%;
+    float: right;
+    min-height: 100vh;
+}
+#center {
+    width: 70%;
+    min-height: 100vh;
+}
+h1 {
+    font-size: clamp(18px, 6vw, 48px)
+    
+}
