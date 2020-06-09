@@ -1,21 +1,19 @@
 //VARIABLE
 let isBasic = true;
 const basic = {
-    elements:[
+    elements: [
         ["", ""],
         ["", ""],
         ["", ""],
         ["", ""],
         ["", ""],
         ["", ""],
-        ["", ""]
+        ["", ""],
     ],
-    molecules:[
-
-    ]
-}
+    molecules: [],
+};
 const hard = {
-    elements:[
+    elements: [
         ["수소", "H"],
         ["리튬", "Li"],
         ["나트륨", "Na"],
@@ -43,11 +41,11 @@ const hard = {
         ["카드뮴", "Cd"],
         ["망가니즈", "Mn"],
         ["크로뮴", "Cr"],
-        ["아연", "Zn"]
+        ["아연", "Zn"],
     ],
-    molecules:[
+    molecules: [
         ["과산화수소", "H<sub>2</sub>O<sub>2</sub>"],
-        ["수소","H<sub>2</sub>"],
+        ["수소", "H<sub>2</sub>"],
         ["염화수소", "HCl"],
         ["메테인", "CH<sub>4</sub>"],
         ["질소", "N<sub>2</sub>"],
@@ -57,7 +55,7 @@ const hard = {
         ["물", "H<sub>2</sub>O"],
         ["산소", "O<sub>2</sub>"],
         ["황산", "H<sub>2</sub>SO<sub>4</sub>"],
-        [" ", " "]
+        [" ", " "],
     ],
     ions: [
         ["수소이온", "H<sup>+</sup>"],
@@ -87,30 +85,68 @@ const hard = {
         ["과망가니즈산 이온", "MnO<sub>4</sub><sup>-</sup>"],
         ["크로뮴산 이온", "CrO<sub>4</sub><sup>2-</sup>"],
         ["산화이온", "O<sup>2-</sup>"],
-        ["", ""]
+        ["", ""],
     ],
     precipitates: [
         ["염화 은", "Ag<sup>+</sup>", "Cl<sup>-</sup>", "AgCl", "흰색"],
-        ["황산 은", "Ag<sub>2</sub><sup>2+</sup>", "SO<sub>4</sub><sup>2-</sup>", "Ag<sub>2</sub>SO<sub>4</sub>", "흰색"],
-        ["탄산 은", "Ag<sub>2</sub><sup>2+</sup>", "CO<sub>3</sub><sup>2-</sup>", "Ag<sub>2</sub>CO<sub>3</sub>", "흰색"],
-        ["탄산 칼슘", "Ca<sup>2+</sup>", "CO<sub>3</sub><sup>2-</sup>", "CaCO<sub>3</sub>", "흰색"],
-        ["황산 칼슘", "Ca<sup>2+</sup>", "SO<sub>4</sub><sup>2-</sup>", "CaSO<sub>4</sub>", "흰색"],
-        ["탄산 바륨", "Ba<sup>2+</sup>", "CO<sub>3</sub><sup>2-</sup>", "BaCO<sub>3</sub>", "흰색"],
-        ["황산 바륨", "Ba<sup>2+</sup>", "SO<sub>4</sub><sup>2-</sup>", "BaSO<sub>4</sub>", "흰색"],
-        ["아이오딘화 납", "Pb<sup>2+</sup>", "I<sub>2</sub><sup>2-</sup>", "PbI<sub>2</sub>", "노란색"],
+        ["황산 은",
+            "Ag<sub>2</sub><sup>2+</sup>",
+            "SO<sub>4</sub><sup>2-</sup>",
+            "Ag<sub>2</sub>SO<sub>4</sub>",
+            "흰색"
+        ],
+        [
+            "탄산 은",
+            "Ag<sub>2</sub><sup>2+</sup>",
+            "CO<sub>3</sub><sup>2-</sup>",
+            "Ag<sub>2</sub>CO<sub>3</sub>",
+            "흰색"
+        ],
+        [
+            "탄산 칼슘",
+            "Ca<sup>2+</sup>",
+            "CO<sub>3</sub><sup>2-</sup>",
+            "CaCO<sub>3</sub>",
+            "흰색"
+        ],
+        [
+            "황산 칼슘",
+            "Ca<sup>2+</sup>",
+            "SO<sub>4</sub><sup>2-</sup>",
+            "CaSO<sub>4</sub>",
+            "흰색"
+        ],
+        [
+            "탄산 바륨",
+            "Ba<sup>2+</sup>",
+            "CO<sub>3</sub><sup>2-</sup>",
+            "BaCO<sub>3</sub>",
+            "흰색"
+        ],
+        [
+            "황산 바륨",
+            "Ba<sup>2+</sup>",
+            "SO<sub>4</sub><sup>2-</sup>",
+            "BaSO<sub>4</sub>",
+            "흰색"
+        ],
+        [
+            "아이오딘화 납",
+            "Pb<sup>2+</sup>",
+            "I<sub>2</sub><sup>2-</sup>",
+            "PbI<sub>2</sub>",
+            "노란색"
+        ],
         ["황화 카드뮴", "Cd<sup>2+</sup>", "S<sup>2-</sup>", "CdS", "노란색"],
         ["황화 납", "Pb<sup>2+</sup>", "S<sup>2-</sup>", "PbS", "검은색"],
         ["황화구리(II)", "Cu<sup>2+</sup>", "S<sup>2-</sup>", "CuS", "검은색"],
-        ["", "", "", "", ""]
-    ]
-}
+        ["", "", "", "", ""],
+    ],
+};
 //<sub>2</sub><sup></sup>
 
-
 function showTables(isBasic) {
-    if (isBasic) {
-        
-    } else {
+    if (isBasic) {} else {
         elementsToTableHard(hard.elements, "element");
         moleculesToTableHard(hard.molecules, "molecule");
         ionsToTableHard(hard.ions, "ion");
@@ -120,7 +156,8 @@ function showTables(isBasic) {
 
 function elementsToTableHard(arr, id) {
     let dest = document.getElementById(id);
-    dest.innerHTML = "<tr><th>원소 이름</th><th>원소 기호</th><th>원소 이름</th><th>원소 기호</th><th>원소 이름</th><th>원소 기호</th><th>원소 이름</th><th>원소 기호</th></tr>"
+    dest.innerHTML =
+        "<tr><th>원소 이름</th><th>원소 기호</th><th>원소 이름</th><th>원소 기호</th><th>원소 이름</th><th>원소 기호</th><th>원소 이름</th><th>원소 기호</th></tr>";
     for (let i = 0; i < 7; i++) {
         let r = document.createElement("tr");
         for (let j = 0; j < 4; j++) {
@@ -135,13 +172,14 @@ function elementsToTableHard(arr, id) {
             d1.appendChild(s1);
             r.appendChild(d1);
         }
-        dest.appendChild(r); 
+        dest.appendChild(r);
     }
 }
 
 function moleculesToTableHard(arr, id) {
     let dest = document.getElementById(id);
-    dest.innerHTML = "<tr><th>분자 이름</th><th>분자 기호</th><th>분자 이름</th><th>분자 기호</th><th>분자 이름</th><th>분자 기호</th></tr>"
+    dest.innerHTML =
+        "<tr><th>분자 이름</th><th>분자 기호</th><th>분자 이름</th><th>분자 기호</th><th>분자 이름</th><th>분자 기호</th></tr>";
     for (let i = 0; i < 4; i++) {
         let r = document.createElement("tr");
         for (let j = 0; j < 3; j++) {
@@ -156,13 +194,14 @@ function moleculesToTableHard(arr, id) {
             d1.appendChild(s1);
             r.appendChild(d1);
         }
-        dest.appendChild(r); 
+        dest.appendChild(r);
     }
 }
 
 function ionsToTableHard(arr, id) {
     let dest = document.getElementById(id);
-    dest.innerHTML = "<tr><th colspan = '4'>양이온</th><th colspan = '4'>음이온</th></tr>"
+    dest.innerHTML =
+        "<tr><th colspan = '4'>양이온</th><th colspan = '4'>음이온</th></tr>";
     for (let i = 0; i < 7; i++) {
         let r = document.createElement("tr");
         for (let j = 0; j < 4; j++) {
@@ -177,27 +216,30 @@ function ionsToTableHard(arr, id) {
             d1.appendChild(s1);
             r.appendChild(d1);
         }
-        dest.appendChild(r); 
+        dest.appendChild(r);
     }
 }
 
 function precipitatesToTableHard(arr, id) {
     let dest = document.getElementById(id);
-    dest.innerHTML = "<tr><th>앙금</th><th>화학 반응식</th><th>앙금의 색</th><th>앙금</th><th>화학 반응식</th><th>앙금의 색</th></tr>"
+    dest.innerHTML =
+        "<tr><th>앙금</th><th>화학 반응식</th><th>앙금의 색</th><th>앙금</th><th>화학 반응식</th><th>앙금의 색</th></tr>";
     for (let i = 0; i < 6; i++) {
         let r = document.createElement("tr");
         for (let j = 0; j < 2; j++) {
-            let d = document.createElement("td"), s = document.createElement("span");
+            let d = document.createElement("td"),
+                s = document.createElement("span");
             s.innerHTML = arr[i + j * 6][0];
             d.appendChild(s);
             r.appendChild(d);
 
-            let d1 = document.createElement("td"), s1 = document.createElement("span");
+            let d1 = document.createElement("td"),
+                s1 = document.createElement("span");
             s1.innerHTML = arr[i + j * 6][1];
             d1.appendChild(s1);
             if (s1.innerHTML) {
                 let s2 = document.createElement("span");
-                s2.innerHTML = " + "
+                s2.innerHTML = " + ";
                 d1.appendChild(s2);
             }
             let s3 = document.createElement("span");
@@ -205,7 +247,7 @@ function precipitatesToTableHard(arr, id) {
             d1.appendChild(s3);
             if (s1.innerHTML) {
                 let s4 = document.createElement("span");
-                s4.innerHTML = " → "
+                s4.innerHTML = " → ";
                 d1.appendChild(s4);
             }
 
@@ -214,19 +256,24 @@ function precipitatesToTableHard(arr, id) {
             d1.appendChild(s5);
             r.appendChild(d1);
 
-            let d6 = document.createElement("td"), s6 = document.createElement("span");
+            let d6 = document.createElement("td"),
+                s6 = document.createElement("span");
             s6.innerHTML = arr[i + j * 6][4];
             d6.appendChild(s6);
             r.appendChild(d6);
-        }//↓
-        dest.appendChild(r); 
+        } //↓
+        dest.appendChild(r);
     }
 }
 
-
 showTables(false);
 
-
-function myFunction(x) {
-    x.classList.toggle("change");
-}
+document.getElementById("menu-button").addEventListener("click", function () {
+    let icon = document.getElementById('menu-icon');
+    let set = document.getElementById('menu-settings')
+    icon.classList.contains('cross') ? (set.classList.remove('open'), icon.classList.remove('cross'), setTimeout(function () {
+        icon.classList.remove('shrink')
+    }, 300))  : (set.classList.add('open'), icon.classList.add('shrink'), setTimeout(function () {
+        icon.classList.add('cross')
+    }, 300))
+});
