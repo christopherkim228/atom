@@ -174,7 +174,6 @@ const hard = {
         ["황화 카드뮴", "Cd<sup>2+</sup>", "S<sup>2-</sup>", "CdS", "노란색"],
         ["황화 납", "Pb<sup>2+</sup>", "S<sup>2-</sup>", "PbS", "검은색"],
         ["황화구리(II)", "Cu<sup>2+</sup>", "S<sup>2-</sup>", "CuS", "검은색"],
-        ["", "", "", "", ""],
     ],
 };
 //<sub>2</sub><sup></sup>
@@ -264,46 +263,42 @@ function precipitatesToTableHard(arr, id) {
     let dest = document.getElementById(id);
     dest.innerHTML =
         "<tr><th>앙금</th><th>화학 반응식</th><th>앙금의 색</th><th>앙금</th><th>화학 반응식</th><th>앙금의 색</th></tr>";
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 15; i++) {
         let r = document.createElement("tr");
-        for (let j = 0; j < 2; j++) {
-            let d = document.createElement("td"),
-                s = document.createElement("span");
-            s.innerHTML = arr[i + j * 8][0];
-            d.appendChild(s);
-            r.appendChild(d);
-
-            let d1 = document.createElement("td"),
-                s1 = document.createElement("span");
-            s1.innerHTML = arr[i + j * 8][1];
-            d1.appendChild(s1);
-            if (s1.innerHTML) {
-                let s2 = document.createElement("span");
+        let d = document.createElement("td"),
+            s = document.createElement("span");
+        s.innerHTML = arr[i][0];
+        d.appendChild(s);
+        r.appendChild(d);
+        let d1 = document.createElement("td"),
+            s1 = document.createElement("span");
+        s1.innerHTML = arr[i][1];
+        d1.appendChild(s1);
+        if (s1.innerHTML) {
+            let s2 = document.createElement("span");
                 s2.innerHTML = " + ";
-                d1.appendChild(s2);
-            }
-            let s3 = document.createElement("span");
-            s3.innerHTML = arr[i + j * 8][2];
-            d1.appendChild(s3);
-            if (s1.innerHTML) {
-                let s4 = document.createElement("span");
-                s4.innerHTML = " → ";
-                d1.appendChild(s4);
-            }
-
-            let s5 = document.createElement("span");
-            s5.innerHTML = arr[i + j * 8][3];
-            d1.appendChild(s5);
-            r.appendChild(d1);
-
-            let d6 = document.createElement("td"),
-                s6 = document.createElement("span");
-            s6.innerHTML = arr[i + j * 8][4];
-            d6.appendChild(s6);
-            r.appendChild(d6);
-        } //↓
-        dest.appendChild(r);
+            d1.appendChild(s2);
+        }
+        let s3 = document.createElement("span");
+        s3.innerHTML = arr[i][2];
+        d1.appendChild(s3);
+        if (s1.innerHTML) {
+            let s4 = document.createElement("span");
+            s4.innerHTML = " → ";
+            d1.appendChild(s4);
+        }
+        let s5 = document.createElement("span");
+        s5.innerHTML = arr[i][3];
+        d1.appendChild(s5);
+        r.appendChild(d1);
+        let d6 = document.createElement("td"),
+            s6 = document.createElement("span");
+        s6.innerHTML = arr[i][4] + "↓";
+        d6.appendChild(s6);
+        r.appendChild(d6);
     }
+    dest.appendChild(r);
+    
 }
 
 showTables(false);
