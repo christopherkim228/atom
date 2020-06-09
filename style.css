@@ -222,9 +222,9 @@ h1 {
 }
 
 #ion {
-    font-size: clamp(2px, 1.8vw, 16px);
+    font-size: clamp(2px, 2.5vw, 20px);
     width: 90%;
-    height: 15vw;
+    height: 20vw;
     margin: 0 auto;
     border: 2px solid black;
     border-collapse: collapse;
@@ -246,9 +246,9 @@ h1 {
 }
 
 #precipitate {
-    font-size: clamp(2px, 1.8vw, 16px);
+    font-size: clamp(2px, 2.5vw, 18px);
     width: 90%;
-    height: 15vw;
+    height: 25vw;
     margin: 0 auto;
     border: 2px solid black;
     border-collapse: collapse;

@@ -21,6 +21,7 @@ const hard = {
         ["마그네슘", "Mg"],
         ["붕소", "B"],
         ["알루미늄", "Al"],
+        ["브로민", "Br"],
         ["탄소", "C"],
         ["은", "Ag"],
         ["금", "Au"],
@@ -28,6 +29,7 @@ const hard = {
         ["철", "Fe"],
         ["구리", "Cu"],
         ["규소", "Si"],
+        ["", ""],
         ["질소", "N"],
         ["납", "Pb"],
         ["인", "P"],
@@ -35,6 +37,7 @@ const hard = {
         ["황", "S"],
         ["플루오린", "F"],
         ["염소", "Cl"],
+        ["", ""],
         ["아이오딘", "I"],
         ["헬륨", "He"],
         ["네온", "Ne"],
@@ -42,6 +45,7 @@ const hard = {
         ["망가니즈", "Mn"],
         ["크로뮴", "Cr"],
         ["아연", "Zn"],
+        ["", ""]
     ],
     molecules: [
         ["과산화수소", "H<sub>2</sub>O<sub>2</sub>"],
@@ -65,12 +69,14 @@ const hard = {
         ["구리이온", "Cu<sup>2+</sup>"],
         ["리튬이온", "Li<sup>+</sup>"],
         ["카드뮴 이온", "Cd<sup>2+</sup>"],
+        ["철(II)이온", "Fe<sup>2+</sup>"],
         ["납이온", "Pb<sup>2+</sup>"],
         ["바륨이온", "Ba<sup>2+</sup>"],
         ["마그네슘 이온", "Mg<sup>2+</sup>"],
         ["알루미늄 이온", "Al<sup>3+</sup>"],
         ["암모늄 이온", "NH<sub>4</sub><sup>+</sup>"],
         ["칼슘이온", "Ca<sup>2+</sup>"],
+        ["아연이온", "Zn<sup>2+</sup>"],
         ["", ""],
         ["염화이온", "Cl<sup>-</sup>"],
         ["아이오딘화 이온", "I<sup>-</sup>"],
@@ -78,6 +84,7 @@ const hard = {
         ["수산화 이온", "OH<sup>-</sup>"],
         ["탄산이온", "CO<sub>3</sub><sup>2-</sup>"],
         ["플루오린화 이온", "F<sup>-</sup>"],
+        ["브로민화이온", "Br<sup>-</sup>"],
         ["", ""],
         ["황산이온", "SO<sub>4</sub><sup>2-</sup>"],
         ["질산이온", "NO<sub>3</sub><sup>-</sup>"],
@@ -85,10 +92,17 @@ const hard = {
         ["과망가니즈산 이온", "MnO<sub>4</sub><sup>-</sup>"],
         ["크로뮴산 이온", "CrO<sub>4</sub><sup>2-</sup>"],
         ["산화이온", "O<sup>2-</sup>"],
+        ["인산이온", "PO<sub>4</sub><sup>3-</sup>"],
         ["", ""],
     ],
     precipitates: [
         ["염화 은", "Ag<sup>+</sup>", "Cl<sup>-</sup>", "AgCl", "흰색"],
+        ["황화 아연",
+            "Zn<sup>2+</sup>",
+            "S<sup>2-</sup>",
+            "ZnS",
+            "흰색"
+        ],
         ["황산 은",
             "Ag<sub>2</sub><sup>2+</sup>",
             "SO<sub>4</sub><sup>2-</sup>",
@@ -131,6 +145,26 @@ const hard = {
             "흰색"
         ],
         [
+            "브로민화 은",
+            "Ag<sup>+</sup>",
+            "Br<sup>-</sup>",
+            "AgBr",
+            "연노란색"
+        ],
+        [
+            "탄산 마그네슘",
+            "Mg<sup>2+</sup>",
+            "CO<sub>3</sub><sup>2-</sup>",
+            "MgCO<sub>3</sub>",
+            "노란색"
+        ],
+        ["아이오딘화 은",
+            "Ag<sup>+</sup>",
+            "I<sup>-</sup>",
+            "AgI",
+            "노란색"
+        ],
+        [
             "아이오딘화 납",
             "Pb<sup>2+</sup>",
             "I<sub>2</sub><sup>2-</sup>",
@@ -146,7 +180,9 @@ const hard = {
 //<sub>2</sub><sup></sup>
 
 function showTables(isBasic) {
-    if (isBasic) {} else {
+    if (isBasic) {
+
+    } else {
         elementsToTableHard(hard.elements, "element");
         moleculesToTableHard(hard.molecules, "molecule");
         ionsToTableHard(hard.ions, "ion");
@@ -158,17 +194,21 @@ function elementsToTableHard(arr, id) {
     let dest = document.getElementById(id);
     dest.innerHTML =
         "<tr><th>원소 이름</th><th>원소 기호</th><th>원소 이름</th><th>원소 기호</th><th>원소 이름</th><th>원소 기호</th><th>원소 이름</th><th>원소 기호</th></tr>";
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 8; i++) {
         let r = document.createElement("tr");
         for (let j = 0; j < 4; j++) {
             let d = document.createElement("td");
+            d.className = "hard-element-name-td"
             let s = document.createElement("span");
-            s.innerHTML = arr[i + j * 7][0];
+            s.className = "hard-element-name-span"
+            s.innerHTML = arr[i + j * 8][0];
             d.appendChild(s);
             r.appendChild(d);
             let d1 = document.createElement("td");
+            d1.className = "hard-element-symbol-td"
             let s1 = document.createElement("span");
-            s1.innerHTML = arr[i + j * 7][1];
+            s1.className = "hard-element-symbol-span"
+            s1.innerHTML = arr[i + j * 8][1];
             d1.appendChild(s1);
             r.appendChild(d1);
         }
@@ -202,17 +242,17 @@ function ionsToTableHard(arr, id) {
     let dest = document.getElementById(id);
     dest.innerHTML =
         "<tr><th colspan = '4'>양이온</th><th colspan = '4'>음이온</th></tr>";
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 8; i++) {
         let r = document.createElement("tr");
         for (let j = 0; j < 4; j++) {
             let d = document.createElement("td");
             let s = document.createElement("span");
-            s.innerHTML = arr[i + j * 7][0];
+            s.innerHTML = arr[i + j * 8][0];
             d.appendChild(s);
             r.appendChild(d);
             let d1 = document.createElement("td");
             let s1 = document.createElement("span");
-            s1.innerHTML = arr[i + j * 7][1];
+            s1.innerHTML = arr[i + j * 8][1];
             d1.appendChild(s1);
             r.appendChild(d1);
         }
@@ -224,18 +264,18 @@ function precipitatesToTableHard(arr, id) {
     let dest = document.getElementById(id);
     dest.innerHTML =
         "<tr><th>앙금</th><th>화학 반응식</th><th>앙금의 색</th><th>앙금</th><th>화학 반응식</th><th>앙금의 색</th></tr>";
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 8; i++) {
         let r = document.createElement("tr");
         for (let j = 0; j < 2; j++) {
             let d = document.createElement("td"),
                 s = document.createElement("span");
-            s.innerHTML = arr[i + j * 6][0];
+            s.innerHTML = arr[i + j * 8][0];
             d.appendChild(s);
             r.appendChild(d);
 
             let d1 = document.createElement("td"),
                 s1 = document.createElement("span");
-            s1.innerHTML = arr[i + j * 6][1];
+            s1.innerHTML = arr[i + j * 8][1];
             d1.appendChild(s1);
             if (s1.innerHTML) {
                 let s2 = document.createElement("span");
@@ -243,7 +283,7 @@ function precipitatesToTableHard(arr, id) {
                 d1.appendChild(s2);
             }
             let s3 = document.createElement("span");
-            s3.innerHTML = arr[i + j * 6][2];
+            s3.innerHTML = arr[i + j * 8][2];
             d1.appendChild(s3);
             if (s1.innerHTML) {
                 let s4 = document.createElement("span");
@@ -252,13 +292,13 @@ function precipitatesToTableHard(arr, id) {
             }
 
             let s5 = document.createElement("span");
-            s5.innerHTML = arr[i + j * 6][3];
+            s5.innerHTML = arr[i + j * 8][3];
             d1.appendChild(s5);
             r.appendChild(d1);
 
             let d6 = document.createElement("td"),
                 s6 = document.createElement("span");
-            s6.innerHTML = arr[i + j * 6][4];
+            s6.innerHTML = arr[i + j * 8][4];
             d6.appendChild(s6);
             r.appendChild(d6);
         } //↓
