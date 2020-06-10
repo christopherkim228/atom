@@ -192,7 +192,14 @@ function showTables(isBasic) {
 function elementsToTableHard(arr, id) {
     let dest = document.getElementById(id);
     dest.innerHTML =
-        "<tr><th>원소 이름</th><th>원소 기호</th><th>원소 이름</th><th>원소 기호</th><th>원소 이름</th><th>원소 기호</th><th>원소 이름</th><th>원소 기호</th></tr>";
+        "<tr><th id = 'hard-element-name-th-1'>원소 이름</th>" + 
+        "<th id = 'hard-element-symbol-th-1'>원소 기호</th>" + 
+        "<th id = 'hard-element-name-th-2'>원소 이름</th>" + 
+        "<th id = 'hard-element-symbol-th-2'>원소 기호</th>" + 
+        "<th id = 'hard-element-name-th-3'>원소 이름</th>" + 
+        "<th id = 'hard-element-symbol-th-3'>원소 기호</th>" + 
+        "<th id = 'hard-element-name-th-4'>원소 이름</th>" + 
+        "<th id = 'hard-element-symbol-th-4'>원소 기호</th></tr>";
     for (let i = 0; i < 8; i++) {
         let r = document.createElement("tr");
         for (let j = 0; j < 4; j++) {
@@ -261,8 +268,7 @@ function ionsToTableHard(arr, id) {
 
 function precipitatesToTableHard(arr, id) {
     let dest = document.getElementById(id);
-    dest.innerHTML =
-        "<tr><th>앙금</th><th>화학 반응식</th><th>앙금의 색</th><th>앙금</th><th>화학 반응식</th><th>앙금의 색</th></tr>";
+    dest.innerHTML = "<tr><th>앙금</th><th>화학 반응식</th><th>앙금의 색</th>";
     for (let i = 0; i < 15; i++) {
         let r = document.createElement("tr");
         let d = document.createElement("td"),
@@ -288,17 +294,16 @@ function precipitatesToTableHard(arr, id) {
             d1.appendChild(s4);
         }
         let s5 = document.createElement("span");
-        s5.innerHTML = arr[i][3];
+        s5.innerHTML = arr[i][3] + "↓";
         d1.appendChild(s5);
         r.appendChild(d1);
         let d6 = document.createElement("td"),
             s6 = document.createElement("span");
-        s6.innerHTML = arr[i][4] + "↓";
+        s6.innerHTML = arr[i][4];
         d6.appendChild(s6);
         r.appendChild(d6);
+        dest.appendChild(r);
     }
-    dest.appendChild(r);
-    
 }
 
 showTables(false);
