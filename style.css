@@ -20,7 +20,7 @@ body {
     /* width: 70%; */
     position: absolute;
     top: 60px;
-    padding-bottom: 15vh;
+    padding-bottom: 50px;
     width: 100%;
     min-height: calc(100vh - 100px);
 }
@@ -143,6 +143,31 @@ h1 {
     top: 0;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #element {
     font-size: clamp(2px, 2.5vw, 18px);
     width: 90%;
@@ -240,6 +265,15 @@ h1 {
 
 
 
+
+
+
+
+
+
+
+
+
 .menu-hard-container {
     vertical-align: middle;
     width: 100%;
@@ -291,6 +325,11 @@ h1 {
     position: absolute;
     left: 25px;
     line-height: 30px;
+}
+
+.menu-test-options-description span {
+    width: calc(100% - 150px);
+    left: 150px;
 }
 
 .switch-button {
@@ -359,4 +398,82 @@ h1 {
 
 .switch-button input:checked+i::after {
     transform: translate3d(22px, 2px, 0);
+}
+
+
+
+
+
+.test {
+    margin-top: 15px;
+    margin-left: 80px;
+    padding: 16px 24px;
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+}
+
+.test:hover {
+    cursor: pointer;
+    background-color: #88B04B;
+    color: white;
+}
+
+.cancel {
+    visibility: hidden;
+    margin-top: 15px;
+    margin-left: 10px;
+    padding: 16px 24px;
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #FF6F61;
+    color: white;
+    border: none;
+}
+
+.cancel:hover {
+    visibility: hidden;
+    cursor: pointer;
+    background-color: #88B04B;
+    color: white;
+}
+
+.results {
+    visibility: hidden;
+    margin-top: 30px;
+    margin-left: 80px;
+    padding: 16px 24px;
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+}
+
+.results:hover {
+    visibility: hidden;
+    cursor: pointer;
+    background-color: #88B04B;
+    color: white;
+}
+
+.isTestRandomP {
+    position: absolute;
+    top: 300px;
+    left: 25px;
+    color: white;
+    font-size: 24px;   
+}
+
+#isTestRandom {
+    width: 50px;
+    height: 50px;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+#isTestRandom:hover{
+    background-color: #ccc;
 }

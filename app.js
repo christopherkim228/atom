@@ -1,5 +1,6 @@
 //VARIABLE
 let isBasic = true;
+let isTesting = false;
 const basic = {
     elements: [
         ["수소", "H"],
@@ -267,33 +268,12 @@ function showTables(_isBasic) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 function clearTables() {
     document.getElementById("element").innerHTML = "";
     document.getElementById("molecule").innerHTML = "";
     document.getElementById("ion").innerHTML = "";
     document.getElementById("precipitate").innerHTML = "";
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -414,29 +394,8 @@ function precipitatesToTableBasic(arr, id) {
         r.appendChild(d6);
         dest.appendChild(r);
     }
+    dest.style.height = "10vw"
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -563,6 +522,7 @@ function precipitatesToTableHard(arr, id) {
         r.appendChild(d6);
         dest.appendChild(r);
     }
+    dest.style.height = "25vw"
 }
 
 
@@ -574,18 +534,17 @@ function precipitatesToTableHard(arr, id) {
 
 
 
+function startTest() {
+    
+}
 
+function cancelTest() {
 
+}
 
+function testResults() {
 
-
-
-
-
-
-
-
-
+}
 
 
 
@@ -616,7 +575,29 @@ document.getElementById("hard-switch").addEventListener("change", function() {
     }
 });
 
+document.getElementById("test").addEventListener("click", function() {
+    if (!isTesting) {
+        document.getElementById("cancel").style.visibility = "visible";
+        document.getElementById("results").style.visibility = "visible";
+        startTest();
+    }
+})
 
+document.getElementById("cancel").addEventListener("click", function() {
+    document.getElementById("cancel").style.visibility = "hidden";
+    document.getElementById("results").style.visibility = "hidden";
+    cancelTest();
+})
+
+document.getElementById("results").addEventListener("click", function() {
+    document.getElementById("cancel").style.visibility = "hidden";
+    document.getElementById("results").style.visibility = "hidden";
+    testResults();
+})
+
+document.getElementById("isTestRandom").addEventListener("change", function() {
+    document.getElementById("test-options-select-container").classList.toggle("random-options")
+})
 
 
 
