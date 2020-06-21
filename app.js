@@ -535,7 +535,17 @@ function precipitatesToTableHard(arr, id) {
 
 
 function startTest() {
-    
+    if (isBasic = true) {
+        startElementsTestBasic();
+        startMoleculesTestBasic();
+        startIonsTestBasic();
+        // startPrecipitatesTestsBasic();
+    } else {
+        startElementsTestHard();
+        startMoleculesTestHard();
+        startIonsTestHard();
+        startPrecipitatesTestsHard();
+    }    
 }
 
 function cancelTest() {
@@ -547,6 +557,79 @@ function testResults() {
 }
 
 
+
+
+
+
+
+
+function startElementsTestBasic() {
+    let id = "element"
+    let children = [...document.getElementById(id).children];
+    for (i = 1; i < 9; i++) {
+        let a = [...children[i].children]
+        for (j = 0; j < 3; j++) {
+            if(Math.random() > 0.5) {
+                a[j*2].firstChild.classList.toggle("hidden");
+                a[j*2].firstChild.createInput();
+            } else {
+                a[j*2+1].firstChild.classList.toggle("hidden");
+                a[j*2+1].firstChild.createInput();
+            }
+        }
+    }
+}
+
+function startMoleculesTestBasic() {
+    let id = "molecule"
+    let children = [...document.getElementById(id).children];
+    for (i = 1; i < 5; i++) {
+        let a = [...children[i].children]
+        for (j = 0; j < 3; j++) {
+            if(Math.random() > 0.5) {
+                if (a[j*2].firstChild.innerText != "") {
+                    a[j*2].firstChild.classList.toggle("hidden");
+                    a[j*2].firstChild.createInput();
+                }
+             } else {
+                if (a[j*2].firstChild.innerText != "") {
+                    a[j*2+1].firstChild.classList.toggle("hidden");
+                    a[j*2+1].firstChild.createInput();
+                }
+            }
+        }
+    }
+}
+
+function startIonsTestBasic() {
+    let id = "ion"
+    let children = [...document.getElementById(id).children];
+    for (i = 1; i < 8; i++) {
+        let a = [...children[i].children]
+        for (j = 0; j < 3; j++) {
+            if(Math.random() > 0.5) {
+                if (a[j*2].firstChild.innerText != "") {
+                    a[j*2].firstChild.classList.toggle("hidden");
+                    a[j*2].firstChild.createInput();
+                }
+             } else {
+                if (a[j*2].firstChild.innerText != "") {
+                    a[j*2+1].firstChild.classList.toggle("hidden");
+                    a[j*2+1].firstChild.createInput();
+                }
+            }
+        }
+    }
+}
+
+
+
+
+HTMLSpanElement.prototype.createInput = function() {
+    var data = this.innerText.replace(/\s+/g, ' ');
+    var s = HTMLtoElement('<input class = "testInput" data-answer = "' + data + '"></input>');
+    this.parentElement.insertBefore(s, this);
+}
 
 
 
@@ -577,6 +660,7 @@ document.getElementById("hard-switch").addEventListener("change", function() {
 
 document.getElementById("test").addEventListener("click", function() {
     if (!isTesting) {
+        isTesting = true;
         document.getElementById("cancel").style.visibility = "visible";
         document.getElementById("results").style.visibility = "visible";
         startTest();
@@ -584,23 +668,33 @@ document.getElementById("test").addEventListener("click", function() {
 })
 
 document.getElementById("cancel").addEventListener("click", function() {
+    cancelTest();
+    isTesting = false;
     document.getElementById("cancel").style.visibility = "hidden";
     document.getElementById("results").style.visibility = "hidden";
-    cancelTest();
 })
 
 document.getElementById("results").addEventListener("click", function() {
+    isTesting = false;
+    testResults();
     document.getElementById("cancel").style.visibility = "hidden";
     document.getElementById("results").style.visibility = "hidden";
-    testResults();
 })
 
-document.getElementById("isTestRandom").addEventListener("change", function() {
-    document.getElementById("test-options-select-container").classList.toggle("random-options")
-})
+// document.getElementById("isTestRandom").addEventListener("change", function() {
+//     document.getElementById("test-options-select-container").classList.toggle("random-options")
+// })
 
 
 
 
 document.getElementById("hard-switch").checked = false;
 showTables(true);
+
+
+function HTMLtoElement(html) {
+    let a = document.createElement("template");
+    html = html.trim();
+    a.innerHTML = html;
+    return a.content.firstChild;
+}
