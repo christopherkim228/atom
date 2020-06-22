@@ -550,8 +550,6 @@ function cancelTest() {
 }
 
 function testResults() {
-    let a = document.getElementsByTagName("input");
-    for (let e in a) {e.readOnly = true;}
     checkElements();
     checkMolecules();
     checkIons();
@@ -560,10 +558,10 @@ function testResults() {
 
 function checkElements() {
     let element = document.getElementById("element")
-    for (i = 1; i < (isBasic) ? 9 : 11; i++) {
+    for (let i = 1; i < (isBasic) ? 9 : 11; i++) {
         let a = element.children[i];
-        for (j = 0; j < 6; j++) {
-            b = a.children[j]
+        for (let j = 0; j < 6; j++) {
+            let b = a.children[j]
             if (b.childElementCount == 2) {
                 if (b.firstChild.getAttribute("data-answer").replace(/\s/g, '') == b.firstChild.value.replace(/\s/g, '')) {
                     if (j % 2 === 0) {
@@ -590,10 +588,10 @@ function checkElements() {
 
 function checkMolecules() {
     let molecule = document.getElementById("molecule")
-    for (i = 1; i < 4; i++) {
+    for (let i = 1; i < 5; i++) {
         let a = molecule.children[i];
-        for (j = 0; j < 6; j++) {
-            b = a.children[j]
+        for (let j = 0; j < 6; j++) {
+            let b = a.children[j]
             if (b.childElementCount == 2) {
                 if (b.firstChild.getAttribute("data-answer").replace(/\s/g, '') == b.firstChild.value.replace(/\s/g, '')) {
                     if (j % 2 === 0) {
@@ -909,14 +907,14 @@ function shuffleArray(array) {
 
 HTMLSpanElement.prototype.createInput = function () {
     var data = this.innerText.replace(/\s+/g, ' ');
-    var s = HTMLtoElement('<input class = "testInput" data-answer = "' + data + '"></input>');
+    var s = HTMLtoElement('<input class = "testInput" type = "text" data-answer = "' + data + '"></input>');
     this.parentElement.insertBefore(s, this);
 }
 
 
 HTMLSpanElement.prototype.createPreInput = function () {
     var data = this.innerHTML.replace(/\s+/g, ' ');
-    var s = HTMLtoElement('<input class = "precipitatesInput" data-answer = "' + data + '"></input>');
+    var s = HTMLtoElement('<input class = "precipitatesInput" type = "text"  data-answer = "' + data + '"></input>');
     this.parentElement.insertBefore(s, this);
 }
 
@@ -981,6 +979,10 @@ document.getElementById("cancel").addEventListener("click", function () {
 
 document.getElementById("results").addEventListener("click", function () {
     isTesting = false;
+    let a = document.getElementsByTagName("input");
+    for (let i = 0; i < a.length; i++) {
+        a[i].readOnly = true;
+    }
     testResults();
     document.getElementById("cancel").style.visibility = "hidden";
     document.getElementById("results").style.visibility = "hidden";
