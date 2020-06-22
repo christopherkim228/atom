@@ -5,33 +5,49 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-    <title>과학 원소</title>
-    <link rel="stylesheet" type = "text/css" href = "style.css">
+	<title>과학 원소</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-    <div id = "app">
+	<div id="app">
 		<!-- <div id = "left">
 			
 		</div> -->
-		<div id = "menu">
-			<div class = "menu-container">
-				<div id = "menu-button" class = "menu-button">
-					<div id = "menu-icon" class = "menu-icon">
+		<div id="menu">
+			<div class="menu-container">
+				<div id="menu-button" class="menu-button">
+					<div id="menu-icon" class="menu-icon">
 						<div class="bar1"></div>
 						<div class="bar2"></div>
-					  	<div class="bar3"></div>
+						<div class="bar3"></div>
 					</div>
 				</div>
+				<div id="buttons">
+					<button id="test" class="test"><span>시험 보기</span></button>
+					<button id="cancel" class="cancel"><span>취소</span></button>
+					<button id="results" class="results"><span>결과 보기</span></button>
+				</div>
 			</div>
-			<div id = "menu-settings" class = "menu-settings">
-				<div id = "menu-content">
-					<div class = "menu-hard-container">
-						<h2 class = "menu-description"><label for = "hard-switch">심화</label> <span></span></h2>
-						<p class = "menu-definition" style = "top: 75px">기본는 수행평가 범위만 다루고,<br>심화는 수행평가 범위 외의 추가적인 내용도 다룹니다.</p>
-						<div class = "menu-content-switch menu-hard-switch-container">
-							<label class="switch-button hard-switch-button" for = "hard-switch">
-								<input id = "hard-switch" class = "switch hard-button" type="checkbox">
+			<div id="menu-settings" class="menu-settings">
+				<div id="menu-content">
+					<div class="menu-hard-container">
+						<h2 class="menu-description"><label for="hard-switch">심화</label> <span style = "left: 80px; width: calc(100% - 80px);"></span></h2>
+						<p class="menu-definition" style="top: 75px">기본는 수행평가 범위만 다루고,<br>심화는 수행평가 범위 외의 추가적인 내용도 다룹니다.
+						</p>
+						<div class=" menu-switch-container" style="top: 30px;">
+							<label class="switch-button hard-switch-button" for="hard-switch">
+								<input id="hard-switch" class="switch hard-button" type="checkbox">
+								<i></i>
+							</label>
+						</div>
+					</div>
+					<div class="menu-shuffle-container">
+						<h2 class="menu-description"><label for="shuffle-switch">랜덤 순서</label> <span style = "left: 150px; width: calc(100% - 150px);"></span></h2>
+						<p class="menu-definition" style="top: 305px">시험을 볼 때 순서를 랜덤으로 합니다.</p>
+						<div class="menu-switch-container" style="top: 260px;">
+							<label class="switch-button shuffle-switch-button" for="shuffle-switch">
+								<input id="shuffle-switch" class="switch shuffle-button" type="checkbox">
 								<i></i>
 							</label>
 						</div>
@@ -56,26 +72,28 @@
 				</div>
 			</div>
 		</div>
-		<div id = "center">
-			<button id = "test" class = "test">시험 보기</button>
-			<button id = "cancel" class = "cancel">취소</button>
-			<button id = "results" class = "results">결과 보기</button>
-			<h3>시험을 볼 때, 윗첨자나 아래첨자는 무시해주세요! 대소문자 구별 있습니다!</h3>
+		<div id="center">
+			<h3>&#8251; 시험을 볼 때, 윗첨자나 아래첨자는 무시해주세요!</h3><h3>대소문자 구별 있습니다!</h3>
 			<h1>1. 원소기호</h1>
-			<table id = "element"></table>
+			<table id="element"></table>
 			<br>
 			<h1>2. 분자</h1>
-			<table id = "molecule"></table>
+			<table id="molecule"></table>
 			<br>
 			<h1>3. 이온</h1>
-			<table id = "ion"></table>
+			<table id="ion"></table>
 			<br>
 			<h1>4. 앙금</h1>
-			<table id = "precipitate"></table>
+			<table id="precipitate"></table>
+			<br>
+			<button id="ok" class="ok"><span>확인</span></button>
+			<div id = "stopwatch-container">
+				<span id = "time">00:00</span>
+			</div>
 		</div>
 	</div>
 	<div>
-		<script src = "app.js"></script>
+		<script src="app.js"></script>
 	</div>
 </body>
 

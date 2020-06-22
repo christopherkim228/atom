@@ -47,11 +47,12 @@ h1 {
 }
 
 .menu-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 60px;
+    width: 100%;
     height: 60px;
+    z-index: 11;
     margin: 0;
     border: 0;
     padding: 0;
@@ -189,6 +190,7 @@ h1 {
 
 #element td {
     border: 1px solid #aaa;
+    vertical-align: middle;
 }
 
 #molecule {
@@ -212,6 +214,8 @@ h1 {
 
 #molecule td {
     border: 1px solid #aaa;
+    width: 16.67%;
+    vertical-align: middle;
 }
 
 #ion {
@@ -235,6 +239,7 @@ h1 {
 
 #ion td {
     border: 1px solid #aaa;
+    vertical-align: middle;
     width: 12.5%;
 }
 
@@ -260,6 +265,7 @@ h1 {
 #precipitate td {
     border: 1px solid #aaa;
     width: 12.5%;
+    vertical-align: middle;
 }
 
 
@@ -289,9 +295,8 @@ h1 {
     transform: translate(-50%, -50%);
 }
 
-.menu-hard-switch-container {
+.menu-switch-container {
     position: absolute;
-    top: 30px;
     right: 30px;
 }
 
@@ -306,13 +311,11 @@ h1 {
 }
 
 .menu-description span {
-    width: calc(100% - 80px);
     display: block;
     content: "";
     position: absolute;
     top: 12px;
     bottom: 0;
-    left: 80px;
     right: 0;
     height: 0.5em;
     border-top: 1px dashed white;
@@ -401,31 +404,42 @@ h1 {
 }
 
 
-
+#buttons {
+    width: calc(100vw - 6px);
+    left: 60px;
+    z-index: 9;
+    position: absolute;
+    height: 60px;
+    margin: 0;
+}
 
 
 .test {
-    margin-top: 15px;
-    margin-left: 80px;
-    padding: 16px 24px;
+    left: 75px;
+    top: 5px;
+    position: absolute;
+    transform: translate(-50%, 0);
+    padding: 12px 18px;
     font-size: 18px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #008CBA;
+    background-color: #88B04B;
     color: white;
     border: none;
 }
 
 .test:hover {
     cursor: pointer;
-    background-color: #88B04B;
+    background-color: #EFC050;
     color: white;
 }
 
 .cancel {
     visibility: hidden;
-    margin-top: 15px;
-    margin-left: 10px;
-    padding: 16px 24px;
+    left: 180px;
+    top: 5px;
+    position: absolute;
+    transform: translate(-50%, 0);
+    padding: 12px 18px;
     font-size: 18px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #FF6F61;
@@ -436,15 +450,17 @@ h1 {
 .cancel:hover {
     visibility: hidden;
     cursor: pointer;
-    background-color: #88B04B;
+    background-color: #EFC050;
     color: white;
 }
 
 .results {
     visibility: hidden;
-    margin-top: 30px;
-    margin-left: 10px;
-    padding: 16px 24px;
+    top: 5px;
+    position: absolute;
+    transform: translate(-50%, 0);
+    left: 280px;
+    padding: 12px 18px;
     font-size: 18px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #88B04B;
@@ -455,7 +471,7 @@ h1 {
 .results:hover {
     visibility: hidden;
     cursor: pointer;
-    background-color: #008CBA;
+    background-color: #EFC050;
     color: white;
 }
 
@@ -464,7 +480,7 @@ h1 {
     top: 300px;
     left: 25px;
     color: white;
-    font-size: 24px;   
+    font-size: 24px;
 }
 
 #isTestRandom {
@@ -474,25 +490,70 @@ h1 {
     cursor: pointer;
 }
 
-#isTestRandom:hover{
+#isTestRandom:hover {
     background-color: #ccc;
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
-.testInput {
-    width: inherit;
-    height: 100%;
+.testInput,
+.precipitatesInput {
+    height: 90%;
     color: black;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+}
+
+.testInput {
+    width: calc(90% - 10px);
+}
+
+
+.precipitatesInput {
+    width: calc(25% - 10px);
 }
 
 h3 {
     color: red;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: 20px;
+    line-height: 20px;
     font-weight: normal;
-    margin-left: 36px;
+    margin-left: 6px;
+}
+
+.precipitatesSelect {
+    width: 90%;
+    height: 90%;
+}
+
+.ok {
+    margin-left: 60px;
+    transform: translate(-50%, 0);
+    padding: 12px 18px;
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #88B04B;
+    color: white;
+    border: none;
+    visibility: hidden
+}
+
+#stopwatch-container {
+    visibility: hidden;
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    border: black 2px solid;
+
+}
+
+#time {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    line-height: 40px;
 }
