@@ -558,26 +558,28 @@ function testResults() {
 
 function checkElements() {
     let element = document.getElementById("element")
-    for (let i = 1; i < (isBasic) ? 9 : 11; i++) {
+    let temp = isBasic ? 9 : 11;
+    for (let i = 1; i < temp; i++) {
         let a = element.children[i];
         for (let j = 0; j < 6; j++) {
             let b = a.children[j]
             if (b.childElementCount == 2) {
-                if (b.firstChild.getAttribute("data-answer").replace(/\s/g, '') == b.firstChild.value.replace(/\s/g, '')) {
+                if (b.firstChild.getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '') == b.firstChild.value.replace(/\s/g, '').replace(/<[^>]*>?/gm, '')) {
                     if (j % 2 === 0) {
-                        a.children[j].style.backgroundColor = "rgba(70, 160, 73, 0.3)";
+                        b.style.backgroundColor = "rgba(70, 160, 73, 0.3)";
                         a.children[j + 1].style.backgroundColor = "rgba(70, 160, 73, 0.3";
                     } else {
-                        a.children[j].style.backgroundColor = "rgba(70, 160, 73, 0.3";
+                        b.style.backgroundColor = "rgba(70, 160, 73, 0.3";
                         a.children[j - 1].style.backgroundColor = "rgba(70, 160, 73, 0.3";
                     }
                 } else {
-                    b.firstChild.value = b.firstChild.value + " 정답: " + b.firstChild.getAttribute("data-answer")
+                    b.firstChild.strikeThrough();
+                    b.children[1].showAnswer();
                     if (j % 2 === 0) {
-                        a.children[j].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                        b.style.backgroundColor = "rgba(244, 67, 54, 0.3)";
                         a.children[j + 1].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
                     } else {
-                        a.children[j].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                        b.style.backgroundColor = "rgba(244, 67, 54, 0.3)";
                         a.children[j - 1].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
                     }
                 }
@@ -593,20 +595,22 @@ function checkMolecules() {
         for (let j = 0; j < 6; j++) {
             let b = a.children[j]
             if (b.childElementCount == 2) {
-                if (b.firstChild.getAttribute("data-answer").replace(/\s/g, '') == b.firstChild.value.replace(/\s/g, '')) {
+                if (b.firstChild.getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '') == b.firstChild.value.replace(/\s/g, '').replace(/<[^>]*>?/gm, '')) {
                     if (j % 2 === 0) {
-                        a.children[j].style.backgroundColor = "rgba(70, 160, 73, 0.3)";
+                        b.style.backgroundColor = "rgba(70, 160, 73, 0.3)";
                         a.children[j + 1].style.backgroundColor = "rgba(70, 160, 73, 0.3";
                     } else {
-                        a.children[j].style.backgroundColor = "rgba(70, 160, 73, 0.3";
+                        b.style.backgroundColor = "rgba(70, 160, 73, 0.3";
                         a.children[j - 1].style.backgroundColor = "rgba(70, 160, 73, 0.3";
                     }
                 } else {
+                    b.firstChild.strikeThrough();
+                    b.children[1].showAnswer();
                     if (j % 2 === 0) {
-                        a.children[j].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                        b.style.backgroundColor = "rgba(244, 67, 54, 0.3)";
                         a.children[j + 1].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
                     } else {
-                        a.children[j].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                        b.style.backgroundColor = "rgba(244, 67, 54, 0.3)";
                         a.children[j - 1].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
                     }
                 }
@@ -614,6 +618,105 @@ function checkMolecules() {
         }
     }
 }
+
+function checkIons() {
+    let molecule = document.getElementById("ion")
+    for (let i = 1; i < 8; i++) {
+        let a = molecule.children[i];
+        for (let j = 0; j < 6; j++) {
+            let b = a.children[j]
+            if (b.childElementCount == 2) {
+                if (b.firstChild.getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '') == b.firstChild.value.replace(/\s/g, '').replace(/<[^>]*>?/gm, '')) {
+                    if (j % 2 === 0) {
+                        b.style.backgroundColor = "rgba(70, 160, 73, 0.3)";
+                        a.children[j + 1].style.backgroundColor = "rgba(70, 160, 73, 0.3";
+                    } else {
+                        b.style.backgroundColor = "rgba(70, 160, 73, 0.3";
+                        a.children[j - 1].style.backgroundColor = "rgba(70, 160, 73, 0.3";
+                    }
+                } else {
+                    b.firstChild.strikeThrough();
+                    b.children[1].showAnswer();
+                    if (j % 2 === 0) {
+                        b.style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                        a.children[j + 1].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                    } else {
+                        b.style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                        a.children[j - 1].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                    }
+                }
+            }
+        }
+    }
+}
+
+function checkPrecipitates() {
+    let precipitate = document.getElementById("precipitate")
+    let temp = isBasic ? 4 : 16;
+    console.log(temp)
+    for (let i = 1; i < temp; i++) {
+        let a = precipitate.children[i];
+        for (let j = 0; j < 3; j++) {
+            let b = a.children[j]
+            if (b.childElementCount == 2) {
+                if (b.firstChild.tagName == "SELECT") {
+                    if (b.firstChild.value == b.firstChild.getAttribute("data-answer")) {
+                        b.style.backgroundColor = "rgba(70, 160, 73, 0.3";
+                        a.children[j - 1].style.backgroundColor = "rgba(70, 160, 73, 0.3";
+                        a.children[j - 2].style.backgroundColor = "rgba(70, 160, 73, 0.3";
+                    } else {
+                        b.style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                        a.children[j - 1].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                        a.children[j - 2].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                    }
+                } else {
+                    if (b.firstChild.getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '') == b.firstChild.value.replace(/\s/g, '').replace(/<[^>]*>?/gm, '')) {
+                        if (j % 3 === 0) {
+                            b.style.backgroundColor = "rgba(70, 160, 73, 0.3)";
+                            a.children[j + 1].style.backgroundColor = "rgba(70, 160, 73, 0.3";
+                            a.children[j + 2].style.backgroundColor = "rgba(70, 160, 73, 0.3";
+                        } else {
+                            b.style.backgroundColor = "rgba(70, 160, 73, 0.3";
+                            a.children[j - 1].style.backgroundColor = "rgba(70, 160, 73, 0.3";
+                            a.children[j - 2].style.backgroundColor = "rgba(70, 160, 73, 0.3";
+                        }
+                    } else {
+                        b.firstChild.strikeThrough();
+                        b.children[1].showAnswer();
+                        if (j % 3 === 0) {
+                            b.style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                            a.children[j + 1].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                            a.children[j + 2].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                        } else {
+                            b.style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                            a.children[j - 1].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                            a.children[j - 2].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                        }
+                    }
+                }
+            } else if (b.childElementCount == 1 || b.childElementCount == 5) {
+
+            } else {
+                if (b.firstChild.getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '') == b.firstChild.value.replace(/\s/g, '').replace(/<[^>]*>?/gm, '') && b.children[3].getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '') == b.children[3].getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '') && b.children[6].getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace('↓', '') == b.children[6].getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace('↓', '')) {
+                    b.style.backgroundColor = "rgba(70, 160, 73, 0.3)";
+                    a.children[j + 1].style.backgroundColor = "rgba(70, 160, 73, 0.3";
+                    a.children[j - 1].style.backgroundColor = "rgba(70, 160, 73, 0.3";
+                } else {
+                    let e = HTMLtoElement("<br>" + b.firstChild.getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '') + " + " + b.children[3].getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '') + " → " + b.children[6].getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '')).replace('↓', '') + "↓";
+                    b.style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                    a.children[j + 1].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                    a.children[j - 1].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
 
 
 
@@ -691,14 +794,10 @@ function startPrecipitatesTestBasic() {
     let children = [...document.getElementById(id).children];
     for (i = 1; i < 4; i++) {
         let a = [...children[i].children]
-        if (a[0
-
-            ].firstChild.innerText != "") {
-            let c = Math.random();
-            if (c < (1 / 3)) {
+        if (a[0].firstChild.innerText != "") {
+            if (Math.random() < 0.5) {
                 a[0].firstChild.classList.toggle("hidden");
                 a[0].firstChild.createInput();
-            } else if (c >= (2 / 3)) {
                 a[2].firstChild.classList.toggle("hidden");
                 a[2].firstChild.createSelect();
             } else {
@@ -807,11 +906,9 @@ function startPrecipitatesTestHard() {
     for (i = 1; i < 16; i++) {
         let a = [...children[i].children]
         if (a[0].firstChild.innerText != "") {
-            let c = Math.random();
-            if (c < (1 / 3)) {
+            if (Math.random() < 0.5) {
                 a[0].firstChild.classList.toggle("hidden");
                 a[0].firstChild.createInput();
-            } else if (c >= (2 / 3)) {
                 a[2].firstChild.classList.toggle("hidden");
                 a[2].firstChild.createSelect();
             } else {
@@ -900,10 +997,17 @@ function shuffleArray(array) {
 
 
 
+HTMLInputElement.prototype.strikeThrough = function () {
+    this.style.textDecoration = "line-through"
+    this.style.color = "red"
+}
 
-
-
-
+HTMLSpanElement.prototype.showAnswer = function () {
+    var data = this.innerText.replace(/\s+/g, ' ');
+    var s = HTMLtoElement('<span class = "answer">' + data + '</span>');
+    this.parentElement.insertBefore(HTMLtoElement("<br>"), this);
+    this.parentElement.insertBefore(s, this);
+}
 
 HTMLSpanElement.prototype.createInput = function () {
     var data = this.innerText.replace(/\s+/g, ' ');
@@ -922,12 +1026,13 @@ HTMLSpanElement.prototype.createSelect = function () {
     var data = this.innerHTML.replace(/\s+/g, ' ');
     var s;
     if (isBasic) {
-        s = HTMLtoElement('<select class = "precipitatesSelect" data-answer = "' + data + '"><option value = "흰색">흰색</option><option value = "노란색">노란색</option></select>');
+        s = HTMLtoElement('<select class = "precipitatesSelect" data-answer = "' + data + '"><option value = " "></option><option value = "흰색">흰색</option><option value = "노란색">노란색</option></select>');
     } else {
-        s = HTMLtoElement('<select class = "precipitatesSelect" data-answer = "' + data + '"><option value = "흰색">흰색</option><option value = "연노란색">연노란색</option><option value = "노란색">노란색</option><option value = "검은색">검은색</option></select>');
+        s = HTMLtoElement('<select class = "precipitatesSelect" data-answer = "' + data + '"><option value = " "></option><option value = "흰색">흰색</option><option value = "연노란색">연노란색</option><option value = "노란색">노란색</option><option value = "검은색">검은색</option></select>');
     }
     this.parentElement.insertBefore(s, this);
 }
+
 
 
 
@@ -971,21 +1076,33 @@ document.getElementById("test").addEventListener("click", function () {
 })
 
 document.getElementById("cancel").addEventListener("click", function () {
-    cancelTest();
-    isTesting = false;
     document.getElementById("cancel").style.visibility = "hidden";
     document.getElementById("results").style.visibility = "hidden";
+    cancelTest();
+    isTesting = false;
 })
 
 document.getElementById("results").addEventListener("click", function () {
-    isTesting = false;
+    document.getElementById("cancel").style.visibility = "hidden";
+    document.getElementById("results").style.visibility = "hidden";
+    document.getElementById("ok").style.visibility = "visible";
     let a = document.getElementsByTagName("input");
     for (let i = 0; i < a.length; i++) {
         a[i].readOnly = true;
     }
     testResults();
-    document.getElementById("cancel").style.visibility = "hidden";
-    document.getElementById("results").style.visibility = "hidden";
+
+})
+
+document.getElementById("ok").addEventListener("click", function () {
+    document.getElementById("ok").style.visibility = "hidden";
+    let a = document.getElementsByTagName("input");
+    for (let i = 0; i < a.length; i++) {
+        a[i].readOnly = false;
+    }
+    clearTables();
+    showTables();
+    isTesting = false;
 })
 
 document.getElementById("shuffle-switch").addEventListener("change", function () {

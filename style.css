@@ -541,6 +541,10 @@ h3 {
     visibility: hidden
 }
 
+.ok:hover {
+    background-color: #EFC050;
+}
+
 #stopwatch-container {
     visibility: hidden;
     display: inline-block;
@@ -556,4 +560,10 @@ h3 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
     line-height: 40px;
+}
+
+.answer {
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #4bd763;
 }
