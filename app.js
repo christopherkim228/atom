@@ -564,7 +564,7 @@ function checkElements() {
         for (let j = 0; j < 6; j++) {
             let b = a.children[j]
             if (b.childElementCount == 2) {
-                if (b.firstChild.getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '') == b.firstChild.value.replace(/\s/g, '').replace(/<[^>]*>?/gm, '')) {
+                if (b.firstChild.getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace(' ', '') == b.firstChild.value.replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace(' ', '')) {
                     if (j % 2 === 0) {
                         b.style.backgroundColor = "rgba(70, 160, 73, 0.3)";
                         a.children[j + 1].style.backgroundColor = "rgba(70, 160, 73, 0.3";
@@ -595,7 +595,7 @@ function checkMolecules() {
         for (let j = 0; j < 6; j++) {
             let b = a.children[j]
             if (b.childElementCount == 2) {
-                if (b.firstChild.getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '') == b.firstChild.value.replace(/\s/g, '').replace(/<[^>]*>?/gm, '')) {
+                if (b.firstChild.getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace(' ', '') == b.firstChild.value.replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace(' ', '')) {
                     if (j % 2 === 0) {
                         b.style.backgroundColor = "rgba(70, 160, 73, 0.3)";
                         a.children[j + 1].style.backgroundColor = "rgba(70, 160, 73, 0.3";
@@ -626,7 +626,7 @@ function checkIons() {
         for (let j = 0; j < 6; j++) {
             let b = a.children[j]
             if (b.childElementCount == 2) {
-                if (b.firstChild.getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '') == b.firstChild.value.replace(/\s/g, '').replace(/<[^>]*>?/gm, '')) {
+                if (b.firstChild.getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace(' ', '') == b.firstChild.value.replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace(' ', '')) {
                     if (j % 2 === 0) {
                         b.style.backgroundColor = "rgba(70, 160, 73, 0.3)";
                         a.children[j + 1].style.backgroundColor = "rgba(70, 160, 73, 0.3";
@@ -670,7 +670,7 @@ function checkPrecipitates() {
                         a.children[j - 2].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
                     }
                 } else {
-                    if (b.firstChild.getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '') == b.firstChild.value.replace(/\s/g, '').replace(/<[^>]*>?/gm, '')) {
+                    if (b.firstChild.getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace(' ', '') == b.firstChild.value.replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace(' ', '')) {
                         if (j % 3 === 0) {
                             b.style.backgroundColor = "rgba(70, 160, 73, 0.3)";
                             a.children[j + 1].style.backgroundColor = "rgba(70, 160, 73, 0.3";
@@ -697,12 +697,12 @@ function checkPrecipitates() {
             } else if (b.childElementCount == 1 || b.childElementCount == 5) {
 
             } else {
-                if (b.firstChild.getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '') == b.firstChild.value.replace(/\s/g, '').replace(/<[^>]*>?/gm, '') && b.children[3].getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '') == b.children[3].getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '') && b.children[6].getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace('↓', '') == b.children[6].getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace('↓', '')) {
+                if (b.firstChild.getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace(' ', '') == b.firstChild.value.replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace(' ', '') && b.children[3].getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace(' ', '') == b.children[3].getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace(' ', '') && b.children[6].getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace(' ', '').replace('↓', '') == b.children[6].getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace(' ', '').replace('↓', '')) {
                     b.style.backgroundColor = "rgba(70, 160, 73, 0.3)";
                     a.children[j + 1].style.backgroundColor = "rgba(70, 160, 73, 0.3";
                     a.children[j - 1].style.backgroundColor = "rgba(70, 160, 73, 0.3";
                 } else {
-                    let e = HTMLtoElement("<br>" + b.firstChild.getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '') + " + " + b.children[3].getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '') + " → " + b.children[6].getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '')).replace('↓', '') + "↓";
+                    let e = HTMLtoElement("<br>" + b.firstChild.getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace(' ', '') + " + " + b.children[3].getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace(' ', '') + " → " + b.children[6].getAttribute("data-answer").replace(/\s/g, '').replace(/<[^>]*>?/gm, '').replace(' ', '')).replace('↓', '') + "↓";
                     b.style.backgroundColor = "rgba(244, 67, 54, 0.3)";
                     a.children[j + 1].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
                     a.children[j - 1].style.backgroundColor = "rgba(244, 67, 54, 0.3)";
