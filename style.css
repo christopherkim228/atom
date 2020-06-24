@@ -172,7 +172,6 @@ h1 {
 #element {
     font-size: clamp(2px, 2.5vw, 18px);
     width: 90%;
-    height: 10vw;
     margin: 0 auto;
     border: 2px solid black;
     border-collapse: collapse;
@@ -191,12 +190,12 @@ h1 {
 #element td {
     border: 1px solid #aaa;
     vertical-align: middle;
+    height: auto;
 }
 
 #molecule {
     font-size: clamp(2px, 2.5vw, 18px);
     width: 90%;
-    height: 10vw;
     margin: 0 auto;
     border: 2px solid black;
     border-collapse: collapse;
@@ -216,12 +215,12 @@ h1 {
     border: 1px solid #aaa;
     width: 16.67%;
     vertical-align: middle;
+    height: auto;
 }
 
 #ion {
     font-size: clamp(2px, 2.5vw, 20px);
     width: 90%;
-    height: 20vw;
     margin: 0 auto;
     border: 2px solid black;
     border-collapse: collapse;
@@ -241,12 +240,12 @@ h1 {
     border: 1px solid #aaa;
     vertical-align: middle;
     width: 12.5%;
+    height: auto;
 }
 
 #precipitate {
     font-size: clamp(2px, 2.5vw, 18px);
     width: 90%;
-    height: 25vw;
     margin: 0 auto;
     border: 2px solid black;
     border-collapse: collapse;
@@ -266,6 +265,7 @@ h1 {
     border: 1px solid #aaa;
     width: 12.5%;
     vertical-align: middle;
+    height: auto;
 }
 
 
