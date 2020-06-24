@@ -19,11 +19,11 @@ const basic = {
         ["구리", "Cu"],
         ["규소", "Si"],
         ["질소", "N"],
-        ["납", "Pb"],
+        ["납", "Pb"],
         ["인", "P"],
         ["산소", "O"],
         ["황", "S"],
-        ["플루오린", "F"],
+        ["플루오린", "F"],
         ["염소", "Cl"],
         ["아이오딘", "I"],
         ["헬륨", "He"],
@@ -63,7 +63,7 @@ const basic = {
         ["탄산이온", "CO<sub>3</sub><sup>2-</sup>"],
         ["황산이온", "SO<sub>4</sub><sup>2-</sup>"],
         ["황화이온", "S<sup>2-</sup>"],
-        ["아세트산 이온", "CH<sub>3</sub>OO<sup>-</sup>"],
+        ["아세트산 이온", "CH<sub>3</sub>COO<sup>-</sup>"],
         ["", ""]
     ],
     precipitates: [
@@ -73,7 +73,7 @@ const basic = {
             "Pb<sup>2+</sup>",
             "I<sup>-</sup>",
             "PbI<sub>2</sub>",
-            "노란색"
+            "노란색"
         ],
         [
             "탄산 칼슘",
@@ -106,7 +106,7 @@ const hard = {
         ["인", "P"],
         ["산소", "O"],
         ["황", "S"],
-        ["플루오린", "F"],
+        ["플루오린", "F"],
         ["염소", "Cl"],
         ["아이오딘", "I"],
         ["헬륨", "He"],
@@ -121,7 +121,7 @@ const hard = {
         ["과산화수소", "H<sub>2</sub>O<sub>2</sub>"],
         ["수소", "H<sub>2</sub>"],
         ["염화수소", "HCl"],
-        ["메테인", "CH<sub>4</sub>"],
+        ["메테인", "CH<sub>4</sub>"],
         ["질소", "N<sub>2</sub>"],
         ["암모니아", "NH<sub>3</sub>"],
         ["이산화탄소", "CO<sub>2</sub>"],
@@ -156,7 +156,7 @@ const hard = {
         ["브로민화이온", "Br<sup>-</sup>"],
         ["황산이온", "SO<sub>4</sub><sup>2-</sup>"],
         ["질산이온", "NO<sub>3</sub><sup>-</sup>"],
-        ["아세트산 이온", "CH<sub>3</sub>OO<sup>-</sup>"],
+        ["아세트산 이온", "CH<sub>3</sub>COO<sup>-</sup>"],
         ["과망가니즈산 이온", "MnO<sub>4</sub><sup>-</sup>"],
         ["크로뮴산 이온", "CrO<sub>4</sub><sup>2-</sup>"],
         ["산화이온", "O<sup>2-</sup>"],
@@ -237,7 +237,7 @@ const hard = {
             "Pb<sup>2+</sup>",
             "I<sub>2</sub><sup>2-</sup>",
             "PbI<sub>2</sub>",
-            "노란색"
+            "노란색"
         ],
         ["황화 카드뮴", "Cd<sup>2+</sup>", "S<sup>2-</sup>", "CdS", "노란색"],
         ["황화 납", "Pb<sup>2+</sup>", "S<sup>2-</sup>", "PbS", "검은색"],
